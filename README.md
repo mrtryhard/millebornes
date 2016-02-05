@@ -1,7 +1,10 @@
 # millebornes
 Mille Bornes - School project / Projet Cégep  (C#, WPF, WCF, EF)
 (English below)
-
+### Authors 
+[@mrtryhard](https://github.com/mrtryhard)
+[@makrattaur](https://github.com/makrattaur)
+  
 Cette version de Mille Bornes est conçue pour jouer en réseau. Dans le cadre du cours de Composants et services web, nous avions l'obligation d'utiliser 
 un service WCF et d'avoir au moins deux services, expliquant certaines pratiques.  
 
