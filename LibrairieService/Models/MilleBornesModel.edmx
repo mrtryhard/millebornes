@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MilleBornesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MilleBornesModelStoreContainer">
+          <EntitySet Name="DrawCardEvent" EntityType="MilleBornesModel.Store.DrawCardEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Game" EntityType="MilleBornesModel.Store.Game" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GameEvent" EntityType="MilleBornesModel.Store.GameEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GameMessage" EntityType="MilleBornesModel.Store.GameMessage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoggedInUser" EntityType="MilleBornesModel.Store.LoggedInUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Message" EntityType="MilleBornesModel.Store.Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlayCardEvent" EntityType="MilleBornesModel.Store.PlayCardEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlayerChangeEvent" EntityType="MilleBornesModel.Store.PlayerChangeEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlayerGame" EntityType="MilleBornesModel.Store.PlayerGame" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlayerRoomState" EntityType="MilleBornesModel.Store.PlayerRoomState" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PrivateMessage" EntityType="MilleBornesModel.Store.PrivateMessage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Room" EntityType="MilleBornesModel.Store.Room" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoomMessage" EntityType="MilleBornesModel.Store.RoomMessage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="MilleBornesModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DrawCardEvent_To_GameEvent" Association="MilleBornesModel.Store.FK_DrawCardEvent_To_GameEvent">
+            <End Role="GameEvent" EntitySet="GameEvent" />
+            <End Role="DrawCardEvent" EntitySet="DrawCardEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrawCardEvent_To_Player" Association="MilleBornesModel.Store.FK_DrawCardEvent_To_Player">
+            <End Role="User" EntitySet="User" />
+            <End Role="DrawCardEvent" EntitySet="DrawCardEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvent_To_Game" Association="MilleBornesModel.Store.FK_GameEvent_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameEvent" EntitySet="GameEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameMessage_To_Game" Association="MilleBornesModel.Store.FK_GameMessage_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameMessage" EntitySet="GameMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameMessage_To_Message" Association="MilleBornesModel.Store.FK_GameMessage_To_Message">
+            <End Role="Message" EntitySet="Message" />
+            <End Role="GameMessage" EntitySet="GameMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoggedInUser_To_User" Association="MilleBornesModel.Store.FK_LoggedInUser_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoggedInUser" EntitySet="LoggedInUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_To_User" Association="MilleBornesModel.Store.FK_Message_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayCardEvent_To_DrawCardEvent" Association="MilleBornesModel.Store.FK_PlayCardEvent_To_DrawCardEvent">
+            <End Role="GameEvent" EntitySet="GameEvent" />
+            <End Role="PlayCardEvent" EntitySet="PlayCardEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayCardEvent_To_GameEvent" Association="MilleBornesModel.Store.FK_PlayCardEvent_To_GameEvent">
+            <End Role="GameEvent" EntitySet="GameEvent" />
+            <End Role="PlayCardEvent" EntitySet="PlayCardEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerChangeEvent_To_GameEvent" Association="MilleBornesModel.Store.FK_PlayerChangeEvent_To_GameEvent">
+            <End Role="GameEvent" EntitySet="GameEvent" />
+            <End Role="PlayerChangeEvent" EntitySet="PlayerChangeEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerChangeEvent_To_Player" Association="MilleBornesModel.Store.FK_PlayerChangeEvent_To_Player">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerChangeEvent" EntitySet="PlayerChangeEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_To_Game" Association="MilleBornesModel.Store.FK_PlayerGame_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_To_User" Association="MilleBornesModel.Store.FK_PlayerGame_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRoomState_To_Room" Association="MilleBornesModel.Store.FK_PlayerRoomState_To_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="PlayerRoomState" EntitySet="PlayerRoomState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRoomState_To_User" Association="MilleBornesModel.Store.FK_PlayerRoomState_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerRoomState" EntitySet="PlayerRoomState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiverUserId" Association="MilleBornesModel.Store.FK_ReceiverUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="PrivateMessage" EntitySet="PrivateMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_To_Game" Association="MilleBornesModel.Store.FK_Room_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_To_User" Association="MilleBornesModel.Store.FK_Room_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomMessage_To_Message" Association="MilleBornesModel.Store.FK_RoomMessage_To_Message">
+            <End Role="Message" EntitySet="Message" />
+            <End Role="RoomMessage" EntitySet="RoomMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomMessage_To_Room" Association="MilleBornesModel.Store.FK_RoomMessage_To_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="RoomMessage" EntitySet="RoomMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SenderUserId_To_User" Association="MilleBornesModel.Store.FK_SenderUserId_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PrivateMessage" EntitySet="PrivateMessage" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DrawCardEvent">
+          <Key>
+            <PropertyRef Name="GameEventId" />
+          </Key>
+          <Property Name="GameEventId" Type="int" Nullable="false" />
+          <Property Name="CardIndex" Type="int" Nullable="false" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndToken" Type="uniqueidentifier" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="EndReason" Type="smallint" />
+          <Property Name="IsTakingDisconnectDecision" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameEvent">
+          <Key>
+            <PropertyRef Name="GameEventId" />
+          </Key>
+          <Property Name="GameEventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ServerEvent" Type="bit" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameMessage">
+          <Key>
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoggedInUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastHeartbeat" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayCardEvent">
+          <Key>
+            <PropertyRef Name="GameEventId" />
+          </Key>
+          <Property Name="GameEventId" Type="int" Nullable="false" />
+          <Property Name="TargetTeamIndex" Type="int" Nullable="false" />
+          <Property Name="DrawCardEventId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerChangeEvent">
+          <Key>
+            <PropertyRef Name="GameEventId" />
+          </Key>
+          <Property Name="GameEventId" Type="int" Nullable="false" />
+          <Property Name="NewPlayerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerGame">
+          <Key>
+            <PropertyRef Name="GameId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Team" Type="int" Nullable="false" />
+          <Property Name="LastHeartbeat" Type="datetime" Nullable="false" />
+          <Property Name="HasJoined" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerRoomState">
+          <Key>
+            <PropertyRef Name="RoomId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="IsReady" Type="bit" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Team" Type="int" Nullable="false" />
+          <Property Name="LastHeartbeat" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrivateMessage">
+          <Key>
+            <PropertyRef Name="PrivateMessageId" />
+          </Key>
+          <Property Name="PrivateMessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SenderUserId" Type="int" Nullable="false" />
+          <Property Name="ReceiverUserId" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Read" Type="bit" Nullable="false" />
+          <Property Name="SentTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MasterUserId" Type="int" Nullable="false" />
+          <Property Name="Started" Type="bit" Nullable="false" />
+          <Property Name="GameInProgressId" Type="int" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomMessage">
+          <Key>
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="PasswordHash" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="EmailAddress" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_DrawCardEvent_To_GameEvent">
+          <End Role="GameEvent" Type="MilleBornesModel.Store.GameEvent" Multiplicity="1" />
+          <End Role="DrawCardEvent" Type="MilleBornesModel.Store.DrawCardEvent" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="GameEvent">
+              <PropertyRef Name="GameEventId" />
+            </Principal>
+            <Dependent Role="DrawCardEvent">
+              <PropertyRef Name="GameEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrawCardEvent_To_Player">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="DrawCardEvent" Type="MilleBornesModel.Store.DrawCardEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="DrawCardEvent">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameEvent_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Store.Game" Multiplicity="1" />
+          <End Role="GameEvent" Type="MilleBornesModel.Store.GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameMessage_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Store.Game" Multiplicity="1" />
+          <End Role="GameMessage" Type="MilleBornesModel.Store.GameMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="GameMessage">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameMessage_To_Message">
+          <End Role="Message" Type="MilleBornesModel.Store.Message" Multiplicity="1" />
+          <End Role="GameMessage" Type="MilleBornesModel.Store.GameMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="GameMessage">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoggedInUser_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="LoggedInUser" Type="MilleBornesModel.Store.LoggedInUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="LoggedInUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="Message" Type="MilleBornesModel.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayCardEvent_To_DrawCardEvent">
+          <End Role="GameEvent" Type="MilleBornesModel.Store.GameEvent" Multiplicity="1" />
+          <End Role="PlayCardEvent" Type="MilleBornesModel.Store.PlayCardEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GameEvent">
+              <PropertyRef Name="GameEventId" />
+            </Principal>
+            <Dependent Role="PlayCardEvent">
+              <PropertyRef Name="DrawCardEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayCardEvent_To_GameEvent">
+          <End Role="GameEvent" Type="MilleBornesModel.Store.GameEvent" Multiplicity="1" />
+          <End Role="PlayCardEvent" Type="MilleBornesModel.Store.PlayCardEvent" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="GameEvent">
+              <PropertyRef Name="GameEventId" />
+            </Principal>
+            <Dependent Role="PlayCardEvent">
+              <PropertyRef Name="GameEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerChangeEvent_To_GameEvent">
+          <End Role="GameEvent" Type="MilleBornesModel.Store.GameEvent" Multiplicity="1" />
+          <End Role="PlayerChangeEvent" Type="MilleBornesModel.Store.PlayerChangeEvent" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="GameEvent">
+              <PropertyRef Name="GameEventId" />
+            </Principal>
+            <Dependent Role="PlayerChangeEvent">
+              <PropertyRef Name="GameEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerChangeEvent_To_Player">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="PlayerChangeEvent" Type="MilleBornesModel.Store.PlayerChangeEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerChangeEvent">
+              <PropertyRef Name="NewPlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Store.Game" Multiplicity="1" />
+          <End Role="PlayerGame" Type="MilleBornesModel.Store.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="PlayerGame" Type="MilleBornesModel.Store.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRoomState_To_Room">
+          <End Role="Room" Type="MilleBornesModel.Store.Room" Multiplicity="1" />
+          <End Role="PlayerRoomState" Type="MilleBornesModel.Store.PlayerRoomState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="PlayerRoomState">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRoomState_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="PlayerRoomState" Type="MilleBornesModel.Store.PlayerRoomState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerRoomState">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiverUserId">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="PrivateMessage" Type="MilleBornesModel.Store.PrivateMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PrivateMessage">
+              <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Store.Game" Multiplicity="0..1" />
+          <End Role="Room" Type="MilleBornesModel.Store.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="GameInProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="Room" Type="MilleBornesModel.Store.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="MasterUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomMessage_To_Message">
+          <End Role="Message" Type="MilleBornesModel.Store.Message" Multiplicity="1" />
+          <End Role="RoomMessage" Type="MilleBornesModel.Store.RoomMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="RoomMessage">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomMessage_To_Room">
+          <End Role="Room" Type="MilleBornesModel.Store.Room" Multiplicity="1" />
+          <End Role="RoomMessage" Type="MilleBornesModel.Store.RoomMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="RoomMessage">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SenderUserId_To_User">
+          <End Role="User" Type="MilleBornesModel.Store.User" Multiplicity="1" />
+          <End Role="PrivateMessage" Type="MilleBornesModel.Store.PrivateMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PrivateMessage">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MilleBornesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MilleBornesEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Game" EntityType="MilleBornesModel.Game" />
+          <EntitySet Name="GameEvent" EntityType="MilleBornesModel.GameEvent" />
+          <EntitySet Name="LoggedInUser" EntityType="MilleBornesModel.LoggedInUser" />
+          <EntitySet Name="Message" EntityType="MilleBornesModel.Message" />
+          <EntitySet Name="PlayerGame" EntityType="MilleBornesModel.PlayerGame" />
+          <EntitySet Name="PlayerRoomState" EntityType="MilleBornesModel.PlayerRoomState" />
+          <EntitySet Name="Room" EntityType="MilleBornesModel.Room" />
+          <EntitySet Name="User" EntityType="MilleBornesModel.User" />
+          <AssociationSet Name="FK_PlayerGame_To_Game" Association="MilleBornesModel.FK_PlayerGame_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_To_Game" Association="MilleBornesModel.FK_Room_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoggedInUser_To_User" Association="MilleBornesModel.FK_LoggedInUser_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoggedInUser" EntitySet="LoggedInUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_To_User" Association="MilleBornesModel.FK_Message_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerGame_To_User" Association="MilleBornesModel.FK_PlayerGame_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerGame" EntitySet="PlayerGame" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRoomState_To_Room" Association="MilleBornesModel.FK_PlayerRoomState_To_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="PlayerRoomState" EntitySet="PlayerRoomState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRoomState_To_User" Association="MilleBornesModel.FK_PlayerRoomState_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerRoomState" EntitySet="PlayerRoomState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_To_User" Association="MilleBornesModel.FK_Room_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="GameMessage" Association="MilleBornesModel.GameMessage">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="RoomMessage" Association="MilleBornesModel.RoomMessage">
+            <End Role="Message" EntitySet="Message" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvent_To_Game" Association="MilleBornesModel.FK_GameEvent_To_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameEvent" EntitySet="GameEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerChangeEvent_To_Player" Association="MilleBornesModel.FK_PlayerChangeEvent_To_Player">
+            <End Role="PlayerChangeEvent" EntitySet="GameEvent" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrawCardEvent_To_Player" Association="MilleBornesModel.FK_DrawCardEvent_To_Player">
+            <End Role="DrawCardEvent" EntitySet="GameEvent" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="PlayCardEventDrawCardEvent" Association="MilleBornesModel.FK_PlayCardEvent_To_DrawCardEvent">
+            <End Role="PlayCardEvent" EntitySet="GameEvent" />
+            <End Role="DrawCardEvent" EntitySet="GameEvent" />
+          </AssociationSet>
+          <EntitySet Name="PrivateMessage" EntityType="MilleBornesModel.PrivateMessage" />
+          <AssociationSet Name="FK_ReceiverUserId" Association="MilleBornesModel.FK_ReceiverUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="PrivateMessage" EntitySet="PrivateMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SenderUserId_To_User" Association="MilleBornesModel.FK_SenderUserId_To_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PrivateMessage" EntitySet="PrivateMessage" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DrawCardEvent" BaseType="MilleBornesModel.GameEvent">
+          <Property Name="CardIndex" Type="Int32" Nullable="false" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_DrawCardEvent_To_Player" FromRole="DrawCardEvent" ToRole="User" />
+          <NavigationProperty Name="PlayCardEvent" Relationship="MilleBornesModel.FK_PlayCardEvent_To_DrawCardEvent" FromRole="DrawCardEvent" ToRole="PlayCardEvent" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <Property Name="EndToken" Type="Guid" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PlayerGame" Relationship="MilleBornesModel.FK_PlayerGame_To_Game" FromRole="Game" ToRole="PlayerGame" />
+          <NavigationProperty Name="Room" Relationship="MilleBornesModel.FK_Room_To_Game" FromRole="Game" ToRole="Room" />
+          <NavigationProperty Name="Message" Relationship="MilleBornesModel.GameMessage" FromRole="Game" ToRole="Message" />
+          <NavigationProperty Name="GameEvent" Relationship="MilleBornesModel.FK_GameEvent_To_Game" FromRole="Game" ToRole="GameEvent" />
+          <Property Type="MilleBornesModel.GameEndReason" Name="EndReason" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsTakingDisconnectDecision" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameEvent" Abstract="true">
+          <Key>
+            <PropertyRef Name="GameEventId" />
+          </Key>
+          <Property Name="GameEventId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ServerEvent" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="MilleBornesModel.GameEventType" Nullable="false" />
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="MilleBornesModel.FK_GameEvent_To_Game" FromRole="GameEvent" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="LoggedInUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastHeartbeat" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_LoggedInUser_To_User" FromRole="LoggedInUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="MilleBornesModel.MessageType" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_Message_To_User" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="Game" Relationship="MilleBornesModel.GameMessage" FromRole="Message" ToRole="Game" />
+          <NavigationProperty Name="Room" Relationship="MilleBornesModel.RoomMessage" FromRole="Message" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="PlayCardEvent" BaseType="MilleBornesModel.GameEvent">
+          <Property Name="TargetTeamIndex" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="DrawCardEventId" Nullable="false" />
+          <NavigationProperty Name="DrawCardEvent" Relationship="MilleBornesModel.FK_PlayCardEvent_To_DrawCardEvent" FromRole="PlayCardEvent" ToRole="DrawCardEvent" />
+        </EntityType>
+        <EntityType Name="PlayerGame">
+          <Key>
+            <PropertyRef Name="GameId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Team" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="MilleBornesModel.FK_PlayerGame_To_Game" FromRole="PlayerGame" ToRole="Game" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_PlayerGame_To_User" FromRole="PlayerGame" ToRole="User" />
+          <Property Type="DateTime" Name="LastHeartbeat" Precision="3" Nullable="false" />
+          <Property Type="Boolean" Name="HasJoined" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerRoomState">
+          <Key>
+            <PropertyRef Name="RoomId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="IsReady" Type="Boolean" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Team" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Room" Relationship="MilleBornesModel.FK_PlayerRoomState_To_Room" FromRole="PlayerRoomState" ToRole="Room" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_PlayerRoomState_To_User" FromRole="PlayerRoomState" ToRole="User" />
+          <Property Type="DateTime" Name="LastHeartbeat" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MasterUserId" Type="Int32" Nullable="false" />
+          <Property Name="Started" Type="Boolean" Nullable="false" />
+          <Property Name="GameInProgressId" Type="Int32" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="MilleBornesModel.FK_Room_To_Game" FromRole="Room" ToRole="Game" />
+          <NavigationProperty Name="PlayerRoomState" Relationship="MilleBornesModel.FK_PlayerRoomState_To_Room" FromRole="Room" ToRole="PlayerRoomState" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_Room_To_User" FromRole="Room" ToRole="User" />
+          <NavigationProperty Name="Message" Relationship="MilleBornesModel.RoomMessage" FromRole="Room" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="LoggedInUser" Relationship="MilleBornesModel.FK_LoggedInUser_To_User" FromRole="User" ToRole="LoggedInUser" />
+          <NavigationProperty Name="Message" Relationship="MilleBornesModel.FK_Message_To_User" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="PlayerGame" Relationship="MilleBornesModel.FK_PlayerGame_To_User" FromRole="User" ToRole="PlayerGame" />
+          <NavigationProperty Name="PlayerRoomState" Relationship="MilleBornesModel.FK_PlayerRoomState_To_User" FromRole="User" ToRole="PlayerRoomState" />
+          <NavigationProperty Name="Room" Relationship="MilleBornesModel.FK_Room_To_User" FromRole="User" ToRole="Room" />
+          <NavigationProperty Name="PlayerChangeEvent" Relationship="MilleBornesModel.FK_PlayerChangeEvent_To_Player" FromRole="User" ToRole="PlayerChangeEvent" />
+          <NavigationProperty Name="DrawCardEvent" Relationship="MilleBornesModel.FK_DrawCardEvent_To_Player" FromRole="User" ToRole="DrawCardEvent" />
+          <NavigationProperty Name="PrivateMessage" Relationship="MilleBornesModel.FK_ReceiverUserId" FromRole="User" ToRole="PrivateMessage" />
+          <NavigationProperty Name="PrivateMessage1" Relationship="MilleBornesModel.FK_SenderUserId_To_User" FromRole="User" ToRole="PrivateMessage" />
+        </EntityType>
+        <Association Name="FK_PlayerGame_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Game" Multiplicity="1" />
+          <End Role="PlayerGame" Type="MilleBornesModel.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_To_Game">
+          <End Role="Game" Type="MilleBornesModel.Game" Multiplicity="0..1" />
+          <End Role="Room" Type="MilleBornesModel.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="GameInProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoggedInUser_To_User">
+          <End Role="User" Type="MilleBornesModel.User" Multiplicity="1" />
+          <End Role="LoggedInUser" Type="MilleBornesModel.LoggedInUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="LoggedInUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_To_User">
+          <End Role="User" Type="MilleBornesModel.User" Multiplicity="1" />
+          <End Role="Message" Type="MilleBornesModel.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerGame_To_User">
+          <End Role="User" Type="MilleBornesModel.User" Multiplicity="1" />
+          <End Role="PlayerGame" Type="MilleBornesModel.PlayerGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerGame">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRoomState_To_Room">
+          <End Role="Room" Type="MilleBornesModel.Room" Multiplicity="1" />
+          <End Role="PlayerRoomState" Type="MilleBornesModel.PlayerRoomState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="PlayerRoomState">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRoomState_To_User">
+          <End Role="User" Type="MilleBornesModel.User" Multiplicity="1" />
+          <End Role="PlayerRoomState" Type="MilleBornesModel.PlayerRoomState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerRoomState">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_To_User">
+          <End Role="User" Type="MilleBornesModel.User" Multiplicity="1" />
+          <End Role="Room" Type="MilleBornesModel.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="MasterUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GameMessage">
+          <End Role="Game" Type="MilleBornesModel.Game" Multiplicity="*" />
+          <End Role="Message" Type="MilleBornesModel.Message" Multiplicity="*" />
+        </Association>
+        <Association Name="RoomMessage">
+          <End Role="Message" Type="MilleBornesModel.Message" Multiplicity="*" />
+          <End Role="Room" Type="MilleBornesModel.Room" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PlayerChangeEvent" BaseType="MilleBornesModel.GameEvent" >
+          <Property Type="Int32" Name="NewPlayerId" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="MilleBornesModel.FK_PlayerChangeEvent_To_Player" FromRole="PlayerChangeEvent" ToRole="User" />
+        </EntityType>
+        <EnumType Name="GameEventType" UnderlyingType="Int16">
+          <Member Name="PLAYER_CHANGE" Value="1" />
+          <Member Name="DRAW_CARD" Value="2" />
+          <Member Name="PLAY_CARD" Value="3" />
+        </EnumType>
+        <Association Name="FK_GameEvent_To_Game">
+          <End Type="MilleBornesModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="MilleBornesModel.GameEvent" Role="GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerChangeEvent_To_Player">
+          <End Type="MilleBornesModel.PlayerChangeEvent" Role="PlayerChangeEvent" Multiplicity="*" />
+          <End Type="MilleBornesModel.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PlayerChangeEvent">
+              <PropertyRef Name="NewPlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrawCardEvent_To_Player">
+          <End Type="MilleBornesModel.DrawCardEvent" Role="DrawCardEvent" Multiplicity="*" />
+          <End Type="MilleBornesModel.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="DrawCardEvent">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayCardEvent_To_DrawCardEvent">
+          <End Type="MilleBornesModel.PlayCardEvent" Role="PlayCardEvent" Multiplicity="*" />
+          <End Type="MilleBornesModel.DrawCardEvent" Role="DrawCardEvent" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="DrawCardEvent">
+              <PropertyRef Name="GameEventId" />
+            </Principal>
+            <Dependent Role="PlayCardEvent">
+              <PropertyRef Name="DrawCardEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="GameEndReason" UnderlyingType="Int16" a:ExternalTypeName="LibrairieService.Models.GameEndReason" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Member Name="WON_THOUSAND_MILES" Value="1" />
+          <Member Name="EXHAUSTED_DECK" Value="2" />
+          <Member Name="PLAYER_DISCONNECTION" Value="3" />
+        </EnumType>
+        <EntityType Name="PrivateMessage">
+          <Key>
+            <PropertyRef Name="PrivateMessageId" />
+          </Key>
+          <Property Type="Int32" Name="PrivateMessageId" Nullable="false" />
+          <Property Type="Int32" Name="SenderUserId" Nullable="false" />
+          <Property Type="Int32" Name="ReceiverUserId" Nullable="false" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Receiver" Relationship="MilleBornesModel.FK_ReceiverUserId" FromRole="PrivateMessage" ToRole="User" />
+          <NavigationProperty Name="Sender" Relationship="MilleBornesModel.FK_SenderUserId_To_User" FromRole="PrivateMessage" ToRole="User" />
+          <Property Type="Boolean" Name="Read" Nullable="false" />
+          <Property Type="DateTime" Name="SentTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_ReceiverUserId">
+          <End Type="MilleBornesModel.User" Role="User" Multiplicity="1" />
+          <End Type="MilleBornesModel.PrivateMessage" Role="PrivateMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PrivateMessage">
+              <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SenderUserId_To_User">
+          <End Type="MilleBornesModel.User" Role="User" Multiplicity="1" />
+          <End Type="MilleBornesModel.PrivateMessage" Role="PrivateMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PrivateMessage">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="MessageType" UnderlyingType="Int16">
+          <Member Name="GLOBAL" Value="0" />
+          <Member Name="ROOM" Value="1" />
+          <Member Name="GAME" Value="2" />
+          <Member Name="PRIVATE" Value="3" />
+        </EnumType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MilleBornesModelStoreContainer" CdmEntityContainer="MilleBornesEntities">
+          <EntitySetMapping Name="Game">
+            <EntityTypeMapping TypeName="MilleBornesModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="IsTakingDisconnectDecision" ColumnName="IsTakingDisconnectDecision" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndReason" ColumnName="EndReason" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="EndToken" ColumnName="EndToken" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameEvent">
+            <EntityTypeMapping TypeName="IsTypeOf(MilleBornesModel.PlayerChangeEvent)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+              <MappingFragment StoreEntitySet="PlayerChangeEvent">
+                <ScalarProperty Name="GameEventId" ColumnName="GameEventId" />
+                <ScalarProperty Name="NewPlayerId" ColumnName="NewPlayerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(MilleBornesModel.GameEvent)">
+              <MappingFragment StoreEntitySet="GameEvent">
+                <ScalarProperty Name="GameEventId" ColumnName="GameEventId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ServerEvent" ColumnName="ServerEvent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(MilleBornesModel.DrawCardEvent)">
+              <MappingFragment StoreEntitySet="DrawCardEvent">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                
+                <ScalarProperty Name="CardIndex" ColumnName="CardIndex" />
+                <ScalarProperty Name="GameEventId" ColumnName="GameEventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(MilleBornesModel.PlayCardEvent)">
+              <MappingFragment StoreEntitySet="PlayCardEvent">
+                <ScalarProperty Name="TargetTeamIndex" ColumnName="TargetTeamIndex" />
+                <ScalarProperty Name="GameEventId" ColumnName="GameEventId" />
+                <ScalarProperty Name="DrawCardEventId" ColumnName="DrawCardEventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoggedInUser">
+            <EntityTypeMapping TypeName="MilleBornesModel.LoggedInUser">
+              <MappingFragment StoreEntitySet="LoggedInUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+                <ScalarProperty Name="LastHeartbeat" ColumnName="LastHeartbeat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="MilleBornesModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerGame">
+            <EntityTypeMapping TypeName="MilleBornesModel.PlayerGame">
+              <MappingFragment StoreEntitySet="PlayerGame">
+                <ScalarProperty Name="HasJoined" ColumnName="HasJoined" />
+                <ScalarProperty Name="LastHeartbeat" ColumnName="LastHeartbeat" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerRoomState">
+            <EntityTypeMapping TypeName="MilleBornesModel.PlayerRoomState">
+              <MappingFragment StoreEntitySet="PlayerRoomState">
+                <ScalarProperty Name="LastHeartbeat" ColumnName="LastHeartbeat" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsReady" ColumnName="IsReady" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room">
+            <EntityTypeMapping TypeName="MilleBornesModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MasterUserId" ColumnName="MasterUserId" />
+                <ScalarProperty Name="Started" ColumnName="Started" />
+                <ScalarProperty Name="GameInProgressId" ColumnName="GameInProgressId" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MilleBornesModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="GameMessage" TypeName="MilleBornesModel.GameMessage" StoreEntitySet="GameMessage">
+            <EndProperty Name="Game">
+              <ScalarProperty Name="GameId" ColumnName="GameId" />
+            </EndProperty>
+            <EndProperty Name="Message">
+              <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoomMessage" TypeName="MilleBornesModel.RoomMessage" StoreEntitySet="RoomMessage">
+            <EndProperty Name="Message">
+              <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+            </EndProperty>
+            <EndProperty Name="Room">
+              <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="PrivateMessage">
+            <EntityTypeMapping TypeName="MilleBornesModel.PrivateMessage">
+              <MappingFragment StoreEntitySet="PrivateMessage">
+                <ScalarProperty Name="SentTime" ColumnName="SentTime" />
+                <ScalarProperty Name="Read" ColumnName="Read" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ReceiverUserId" ColumnName="ReceiverUserId" />
+                <ScalarProperty Name="SenderUserId" ColumnName="SenderUserId" />
+                <ScalarProperty Name="PrivateMessageId" ColumnName="PrivateMessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

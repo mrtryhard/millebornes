@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fc0273a3-b35d-4ef4-9832-aa2a7ff2b3c6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/LibrairieService/UserService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3d17cacf-ac17-4a39-9633-19781a00d5b0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/UserService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="98a18fb4-d691-4234-865a-0f89e014566a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/UserService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="df602b0d-171c-4fa0-a45f-fd86ecb8a6a0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/UserService/mex" />
+    <MetadataFile FileName="LibrairieService.Models.xsd" MetadataType="Schema" ID="aaec5096-5e53-4b3e-bdac-eaf724d9fc3e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/UserService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

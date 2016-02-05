@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="54021ac516f543f9a1886dfda5cd3a84" Name="Diagramme1" ZoomLevel="100">
+        <EntityTypeShape EntityType="MilleBornesModel.DrawCardEvent" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.Game" Width="1.5" PointX="8.875" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.GameEvent" Width="1.5" PointX="8.875" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.LoggedInUser" Width="1.5" PointX="1.125" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.Message" Width="1.5" PointX="6.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.PlayCardEvent" Width="1.5" PointX="6.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.PlayerGame" Width="1.5" PointX="6.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.PlayerRoomState" Width="1.5" PointX="1.125" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.Room" Width="1.5" PointX="3.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MilleBornesModel.User" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayerGame_To_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_Room_To_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_LoggedInUser_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_Message_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayerGame_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayerRoomState_To_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayerRoomState_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.FK_Room_To_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.GameMessage" ManuallyRouted="false" />
+        <AssociationConnector Association="MilleBornesModel.RoomMessage" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MilleBornesModel.PlayerChangeEvent" Width="1.75" PointX="6.5" PointY="12.375" />
+        <InheritanceConnector EntityType="MilleBornesModel.PlayerChangeEvent" />
+        <InheritanceConnector EntityType="MilleBornesModel.DrawCardEvent" />
+        <InheritanceConnector EntityType="MilleBornesModel.PlayCardEvent" />
+        <AssociationConnector Association="MilleBornesModel.FK_GameEvent_To_Game" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayerChangeEvent_To_Player" />
+        <AssociationConnector Association="MilleBornesModel.FK_DrawCardEvent_To_Player" />
+        <AssociationConnector Association="MilleBornesModel.FK_PlayCardEvent_To_DrawCardEvent" />
+        <EntityTypeShape EntityType="MilleBornesModel.PrivateMessage" Width="1.5" PointX="5.990372833791362" PointY="20.133647004204636" />
+        <AssociationConnector Association="MilleBornesModel.FK_ReceiverUserId" />
+        <AssociationConnector Association="MilleBornesModel.FK_SenderUserId_To_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

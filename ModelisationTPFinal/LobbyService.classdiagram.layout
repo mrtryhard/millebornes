@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LobbyService">
+  <logicalClassDesignerModelMoniker Id="0153254e-0f32-4372-bc04-86bd5dd65836" />
+  <nestedChildShapes>
+    <classShape Id="e8b8e72b-de76-44dd-b716-b4d96fb7df40" absoluteBounds="4, 0.5, 1.5, 0.90234373509883881" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="00c3fc8d-cb2c-49b4-a516-9195cd669544" LastKnownName="LobbyView" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="35130bd7-9f78-41c1-b249-764297e11759" absoluteBounds="4.0150000000000006, 0.89000000000000012, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="2e189fd5-29b3-440d-808d-e7496c234684" absoluteBounds="4.0150000000000006, 1.1011718675494193, 1.4700000000000002, 0.2011718675494194" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbeef7b1-8b32-45b0-abd6-fe2c6e28794c" absoluteBounds="3.375, 2.75, 2.5, 1.0624999801317849" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="1a66d248-ae20-4710-8b0f-7bc49ced4d91" LastKnownName="LoginView" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="fe527858-3a46-4551-a1cf-0481ad353788" absoluteBounds="3.39, 3.14, 2.4699999999999998, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="78d65ab8-6b0c-49d4-8161-8b5122979ca7" absoluteBounds="3.39, 3.3511718675494193, 2.4699999999999998, 0.36132811258236563" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

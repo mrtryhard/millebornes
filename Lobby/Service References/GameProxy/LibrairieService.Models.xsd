@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/LibrairieService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LibrairieService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="GameState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardsInHand" nillable="true" type="tns:ArrayOfGameCard" />
+      <xs:element minOccurs="0" name="CurrentPlayer" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentTeam" type="xs:int" />
+      <xs:element minOccurs="0" name="GameEnd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GameEndReason" nillable="true" type="tns:GameEndReason" />
+      <xs:element minOccurs="0" name="IsOwnTeamTurn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOwnTurn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OpponentsTeamStates" nillable="true" type="tns:ArrayOfTeamState" />
+      <xs:element minOccurs="0" name="OwnPlayerOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="OwnTeamIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="OwnTeamState" nillable="true" type="tns:TeamState" />
+      <xs:element minOccurs="0" name="Players" nillable="true" type="tns:ArrayOfGamePlayer" />
+      <xs:element minOccurs="0" name="WaitingForDecision" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameState" nillable="true" type="tns:GameState" />
+  <xs:complexType name="ArrayOfGameCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameCard" nillable="true" type="tns:GameCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGameCard" nillable="true" type="tns:ArrayOfGameCard" />
+  <xs:complexType name="GameCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardId" type="xs:int" />
+      <xs:element minOccurs="0" name="Token" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameCard" nillable="true" type="tns:GameCard" />
+  <xs:simpleType name="GameEndReason">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WON_THOUSAND_MILES">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EXHAUSTED_DECK">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PLAYER_DISCONNECTION">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GameEndReason" nillable="true" type="tns:GameEndReason" />
+  <xs:complexType name="ArrayOfTeamState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TeamState" nillable="true" type="tns:TeamState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTeamState" nillable="true" type="tns:ArrayOfTeamState" />
+  <xs:complexType name="TeamState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanGo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DistanceTraveled" type="xs:int" />
+      <xs:element minOccurs="0" name="HasAccident" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasFlatTire" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InvinciblePriority" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InvincibleToAccidents" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InvincibleToFuel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InvincibleToTire" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBrokenDown" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOutOfFuel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUnderSpeedLimit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PlayedCardEffects" type="tns:EffectCardType" />
+      <xs:element minOccurs="0" name="TeamIndex" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TeamState" nillable="true" type="tns:TeamState" />
+  <xs:simpleType name="EffectCardType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NONE">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ACCIDENT">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="FUEL">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="TIRE">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SPEED_LIMIT">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="TRAFFIC_LIGHT">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="EffectCardType" nillable="true" type="tns:EffectCardType" />
+  <xs:complexType name="ArrayOfGamePlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGamePlayer" nillable="true" type="tns:ArrayOfGamePlayer" />
+  <xs:complexType name="GamePlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order" type="xs:int" />
+      <xs:element minOccurs="0" name="TeamIndex" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+  <xs:simpleType name="PlayCardResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESS" />
+      <xs:enumeration value="CANNOT_PLAY" />
+      <xs:enumeration value="WRONG_TOKEN" />
+      <xs:enumeration value="WRONG_TOKEN_PLAYER" />
+      <xs:enumeration value="ALREADY_PLAYED" />
+      <xs:enumeration value="WRONG_TURN" />
+      <xs:enumeration value="NOT_ALL_PLAYERS_PRESENT" />
+      <xs:enumeration value="WAITING_FOR_DECISION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PlayCardResult" nillable="true" type="tns:PlayCardResult" />
+  <xs:complexType name="ArrayOfUserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMessage" nillable="true" type="tns:UserMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMessage" nillable="true" type="tns:ArrayOfUserMessage" />
+  <xs:complexType name="UserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMessage" nillable="true" type="tns:UserMessage" />
+</xs:schema>

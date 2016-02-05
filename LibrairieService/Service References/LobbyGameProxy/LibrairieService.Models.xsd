@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/LibrairieService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LibrairieService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRoomInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomInfo" nillable="true" type="tns:RoomInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoomInfo" nillable="true" type="tns:ArrayOfRoomInfo" />
+  <xs:complexType name="RoomInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MasterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Token" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoomInfo" nillable="true" type="tns:RoomInfo" />
+  <xs:complexType name="ArrayOfUserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMessage" nillable="true" type="tns:UserMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMessage" nillable="true" type="tns:ArrayOfUserMessage" />
+  <xs:complexType name="UserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMessage" nillable="true" type="tns:UserMessage" />
+  <xs:complexType name="ArrayOfPlayerConfigEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlayerConfigEntry" nillable="true" type="tns:PlayerConfigEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlayerConfigEntry" nillable="true" type="tns:ArrayOfPlayerConfigEntry" />
+  <xs:complexType name="PlayerConfigEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Order" type="xs:int" />
+      <xs:element minOccurs="0" name="Team" type="xs:int" />
+      <xs:element minOccurs="0" name="UserToken" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlayerConfigEntry" nillable="true" type="tns:PlayerConfigEntry" />
+</xs:schema>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="Lobby.Views.ClientInfosView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Informations - MilleBornes en ligne" ResizeMode="NoResize" Height="300" Width="365.369">
+    <Grid Background="#FFE5E5E5">
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="fr-ca" Text="Guid:"/></TextBlock>
+        <TextBlock Name="lblGuid" Text="12345678-12345678-12345678-12345678" HorizontalAlignment="Left" Margin="120,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="fr-ca" Text="Pseudonyme:"/></TextBlock>
+        <TextBlock Name="lblPseudo" Text="test" HorizontalAlignment="Left" Margin="120,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="lblLastLogin" Text="test" HorizontalAlignment="Left" Margin="120,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBlock FontSize="14" Text="Commandes chat" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339">
+            <Bold>/teams</Bold><LineBreak />
+            <Italic>Affiche les équipes actuelles</Italic><LineBreak/>
+            <Bold>/status</Bold><LineBreak />
+            <Italic>Affiche le statut des joueurs (prêt ou non)</Italic><LineBreak/>
+            <Bold>/validate</Bold><LineBreak />
+            <Italic>Détermine si la composition est valide.</Italic><LineBreak/>
+            <Bold>/kick [nom]; [raison]</Bold><LineBreak />
+            <Italic>Kick le joueur [nom] pour la raison [raison]. Le point-virgule est important.</Italic>
+        </TextBlock>
+    </Grid>
+</Window>

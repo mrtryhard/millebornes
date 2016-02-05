@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0153254e-0f32-4372-bc04-86bd5dd65836" name="LobbyService" linkedPackageId="2f26095e-4d16-4099-a3fe-fcffcb1ef219" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="606e96e9-9b00-4100-b868-8647317367c5">
+      <profileInstance Id="89fbf262-a142-4a62-b3f0-f5505ad0041d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="821077a1-6ea9-4d2e-b90d-43057886e4e2">
+      <profileInstance Id="0223d060-8e71-40cf-ae18-c0d679ae4381" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="00c3fc8d-cb2c-49b4-a516-9195cd669544" name="LobbyView" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f64b443a-33ec-4e0a-a23a-460ce6328167" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1a66d248-ae20-4710-8b0f-7bc49ced4d91" name="LoginView" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6e45f55e-49da-4c98-8dfa-3af9db4b287a" />
+        <ownedOperationsInternal>
+          <operation Id="0b57ded5-ceb3-4cdb-bd8d-e5a41fa7c8a5" name="Connect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="57169a73-4396-41a4-af4e-3976f37c4829" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b19a16ae-8c8b-47be-8157-a6d9d6ed0a33" name="string user" direction="In" isUnique="false">
+                  <elementDefinition Id="453f7329-c0fb-4a52-90e4-6b54cc9dc3f3" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1803812e-c68f-4a4a-bcf1-eb5159b91383" name="string pass" direction="In" isUnique="false">
+                  <elementDefinition Id="783bf4a0-35fe-42b8-ba39-9111c521f4b4" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1eca2094-31bb-4961-870c-936bd02f1a93" direction="Return" isUnique="false">
+                  <elementDefinition Id="01890dfa-a72d-431f-a4ff-b02d3c3fb689" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c8106980-fa8c-446d-ae26-aff11b1a7531" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c8106980-fa8c-446d-ae26-aff11b1a7531" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="d6adee7e-5c12-481f-88f5-a7894e207d51" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="2f26095e-4d16-4099-a3fe-fcffcb1ef219" name="ModelisationTPFinal">
+    <elementDefinition Id="e033f6ca-84e0-4198-a648-a92441bf5a51" />
+  </package>
+</logicalClassDesignerModel>

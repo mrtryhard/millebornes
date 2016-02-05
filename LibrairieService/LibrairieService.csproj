@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15B3E0D2-6217-493A-A690-158C497F5318}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibrairieService</RootNamespace>
+    <AssemblyName>LibrairieService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <XsdCodeGenSerializerMode>XmlSerializer</XsdCodeGenSerializerMode>
+    <XsdCodeGenReuseTypesFlag>True</XsdCodeGenReuseTypesFlag>
+    <XsdCodeGenReuseTypesMode>All</XsdCodeGenReuseTypesMode>
+    <XsdCodeGenReferences />
+    <XsdCodeGenNamespaceMappings>%2a, LibrairieService.ContractTypes</XsdCodeGenNamespaceMappings>
+    <XsdCodeGenCollectionTypes>System.Array%3bSystem.Collections.Generic.Dictionary`2</XsdCodeGenCollectionTypes>
+    <XsdCodeGenExcludedTypes />
+    <XsdCodeGenImportXmlTypes>True</XsdCodeGenImportXmlTypes>
+    <XsdCodeGenGenerateSerializableTypes>True</XsdCodeGenGenerateSerializableTypes>
+    <XsdCodeGenGenerateInternalTypes>False</XsdCodeGenGenerateInternalTypes>
+    <XsdCodeGenEnableDataBinding>False</XsdCodeGenEnableDataBinding>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\CardDefinitions.cs" />
+    <Compile Include="Models\CardType.cs" />
+    <Compile Include="Models\CreateUserInfo.cs" />
+    <Compile Include="Models\DrawCardEvent.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EffectCardType.cs" />
+    <Compile Include="Models\Game.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameCard.cs" />
+    <Compile Include="Models\GameEndReason.cs" />
+    <Compile Include="Models\GameEvent.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameEventType.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GamePlayer.cs" />
+    <Compile Include="Models\GameState.cs" />
+    <Compile Include="Models\LoggedInUser.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageType.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilleBornesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilleBornesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilleBornesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilleBornesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilleBornesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlayCardEvent.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlayCardResult.cs" />
+    <Compile Include="Models\PlayerChangeEvent.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlayerConfigEntry.cs" />
+    <Compile Include="Models\PlayerGame.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlayerRoomState.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrivateMessage.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Room.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomInfo.cs" />
+    <Compile Include="Models\TeamState.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MilleBornesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserMessage.cs" />
+    <Compile Include="Service References\LobbyGameProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\ILobbyService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LobbyGameService.cs" />
+    <Compile Include="Services\LobbyService.cs" />
+    <Compile Include="Services\LogLevel.cs" />
+    <Compile Include="Services\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\MilleBornesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MilleBornesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\MilleBornesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MilleBornesModel.Context.cs</LastGenOutput>
+      <DependentUpon>MilleBornesModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\MilleBornesModel.edmx.diagram">
+      <DependentUpon>MilleBornesModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\MilleBornesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MilleBornesModel.edmx</DependentUpon>
+      <LastGenOutput>MilleBornesModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\LobbyGameProxy\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LobbyGameProxy\LibrairieService.LobbyGameProxy.PlayerConfigEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LobbyGameProxy\LibrairieService.LobbyGameProxy.RoomInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LobbyGameProxy\LibrairieService.LobbyGameProxy.UserMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LobbyGameProxy\LibrairieService.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LobbyGameProxy\service.wsdl" />
+    <None Include="Service References\LobbyGameProxy\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LobbyGameProxy\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LobbyGameProxy\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LobbyGameProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LobbyGameProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LobbyGameProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="milleborne_local.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\MilleBornesModel.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio</VSToolsPath>
+    <WcfServiceModelTargetPath>$(VSToolsPath)\WCF</WcfServiceModelTargetPath>
+  </PropertyGroup>
+  <Import Project="$(WcfServiceModelTargetPath)\Microsoft.VisualStudio.ServiceModel.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>False</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

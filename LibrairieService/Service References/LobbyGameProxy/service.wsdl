@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LobbyGameService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ILobbyService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/LibrairieService.Models" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILobbyService_CreateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoom" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_CreateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_JoinRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoom" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_JoinRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_JoinRoomGameEnd_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoomGameEnd" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_JoinRoomGameEnd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoomGameEndResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_LeaveRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoom" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_LeaveRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetReady" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetReadyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SendRoomMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendRoomMessage" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SendRoomMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendRoomMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetConfig" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetName" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMaster" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetOpenRoomsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenRoomsInfo" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetOpenRoomsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenRoomsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetLoggedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoggedUsers" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetLoggedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoggedUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetRoomPlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomPlayers" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetRoomPlayers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomPlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetRoomMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomMessages" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetRoomMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetMasterName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterName" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetMasterName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTeam" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetCurrentTeamIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTeamIndex" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetCurrentTeamIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTeamIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetRoomName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRoomName" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SetRoomName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRoomNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetCurrentGameToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentGameToken" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetCurrentGameToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentGameTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetNewMessageFrom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMessageFrom" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetNewMessageFrom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMessageFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SendPrivateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPrivateMessage" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_SendPrivateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPrivateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetPlayerConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerConfig" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyService_GetPlayerConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerConfigResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILobbyService">
+    <wsdl:operation name="CreateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/CreateRoom" message="tns:ILobbyService_CreateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/CreateRoomResponse" message="tns:ILobbyService_CreateRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/JoinRoom" message="tns:ILobbyService_JoinRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/JoinRoomResponse" message="tns:ILobbyService_JoinRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoomGameEnd">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/JoinRoomGameEnd" message="tns:ILobbyService_JoinRoomGameEnd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/JoinRoomGameEndResponse" message="tns:ILobbyService_JoinRoomGameEnd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/LeaveRoom" message="tns:ILobbyService_LeaveRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/LeaveRoomResponse" message="tns:ILobbyService_LeaveRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReady">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetReady" message="tns:ILobbyService_SetReady_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetReadyResponse" message="tns:ILobbyService_SetReady_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRoomMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SendRoomMessage" message="tns:ILobbyService_SendRoomMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SendRoomMessageResponse" message="tns:ILobbyService_SendRoomMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetConfig" message="tns:ILobbyService_SetConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetConfigResponse" message="tns:ILobbyService_SetConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetName" message="tns:ILobbyService_SetName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetNameResponse" message="tns:ILobbyService_SetName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetMaster" message="tns:ILobbyService_SetMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetMasterResponse" message="tns:ILobbyService_SetMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenRoomsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetOpenRoomsInfo" message="tns:ILobbyService_GetOpenRoomsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetOpenRoomsInfoResponse" message="tns:ILobbyService_GetOpenRoomsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoggedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetLoggedUsers" message="tns:ILobbyService_GetLoggedUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetLoggedUsersResponse" message="tns:ILobbyService_GetLoggedUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomPlayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetRoomPlayers" message="tns:ILobbyService_GetRoomPlayers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetRoomPlayersResponse" message="tns:ILobbyService_GetRoomPlayers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetRoomMessages" message="tns:ILobbyService_GetRoomMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetRoomMessagesResponse" message="tns:ILobbyService_GetRoomMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetMasterName" message="tns:ILobbyService_GetMasterName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetMasterNameResponse" message="tns:ILobbyService_GetMasterName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetTeam" message="tns:ILobbyService_SetTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetTeamResponse" message="tns:ILobbyService_SetTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTeamIndex">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetCurrentTeamIndex" message="tns:ILobbyService_GetCurrentTeamIndex_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetCurrentTeamIndexResponse" message="tns:ILobbyService_GetCurrentTeamIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRoomName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SetRoomName" message="tns:ILobbyService_SetRoomName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SetRoomNameResponse" message="tns:ILobbyService_SetRoomName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentGameToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetCurrentGameToken" message="tns:ILobbyService_GetCurrentGameToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetCurrentGameTokenResponse" message="tns:ILobbyService_GetCurrentGameToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMessageFrom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetNewMessageFrom" message="tns:ILobbyService_GetNewMessageFrom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetNewMessageFromResponse" message="tns:ILobbyService_GetNewMessageFrom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad" message="tns:ILobbyService_DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLadResponse" message="tns:ILobbyService_DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPrivateMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/SendPrivateMessage" message="tns:ILobbyService_SendPrivateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/SendPrivateMessageResponse" message="tns:ILobbyService_SendPrivateMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyService/GetPlayerConfig" message="tns:ILobbyService_GetPlayerConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyService/GetPlayerConfigResponse" message="tns:ILobbyService_GetPlayerConfig_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ILobbyService" type="tns:ILobbyService">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILobbyService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateRoom">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/CreateRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoom">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/JoinRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoomGameEnd">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/JoinRoomGameEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/LeaveRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReady">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetReady" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRoomMessage">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SendRoomMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConfig">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetName">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMaster">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenRoomsInfo">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetOpenRoomsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoggedUsers">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetLoggedUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomPlayers">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetRoomPlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomMessages">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetRoomMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterName">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetMasterName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTeam">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTeamIndex">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetCurrentTeamIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoomName">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SetRoomName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentGameToken">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetCurrentGameToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMessageFrom">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetNewMessageFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/DoTheBigBastardThatWaveHisFlagHasNewMessageFromSomeoneIfSoTellMeLad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPrivateMessage">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/SendPrivateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerConfig">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyService/GetPlayerConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LobbyGameService">
+    <wsdl:port name="NetTcpBinding_ILobbyService" binding="tns:NetTcpBinding_ILobbyService">
+      <soap12:address location="net.tcp://localhost:8734/LibrairieService/LobbyService/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8734/LibrairieService/LobbyService/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

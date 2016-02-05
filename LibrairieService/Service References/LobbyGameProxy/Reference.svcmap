@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a9edcf43-72db-4038-9a5b-5e0c8f52c7f5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="284165cb-ee5d-4b21-a8c3-39554d70407f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c47b18a0-1757-46e4-a281-734b653ab764" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="62d90e13-c0a5-4677-9a60-99e3891b0b82" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" />
+    <MetadataFile FileName="LibrairieService.Models.xsd" MetadataType="Schema" ID="149a7654-1905-44ca-830c-50f6b3d1251b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="ef5a8b3e-eda1-4b3c-b29d-a0b62d746b6a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LibrairieService/LobbyGameService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
